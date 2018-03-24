@@ -21,12 +21,7 @@ type WConn struct {
 func OpenConn(session *quic.Session, channels []string) Conn {
 	wconn := new(WConn)
 	wconn.streams = make(map[string]Stream)
-	sorted := make([]string, 0)
-	for k, _ := range channels {
-    		sorted = append(sorted, k)
-	}
-	sort.Ints(sorted)
-	for _, id := range sorted {
+	for _, id := range channels {
 		stream, err := (*session).OpenStreamSync()
 		if err != nil {
 			panic(err)
