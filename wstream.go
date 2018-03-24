@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 
 	quic "github.com/lucas-clemente/quic-go"
-	"github.com/mogball/wcomms/wjson"
+	"github.com/waterloop/wcomms/wjson"
 )
 
 type Stream interface {
